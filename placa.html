@@ -1,0 +1,45 @@
+<html>
+   <head>
+      <title>Pico Placa predictor</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+     
+   </head>
+   <body>
+      
+      <h2>Pico Placa Application</h2>
+      <div ng-app = "mainApp" ng-controller = "placaController">
+         
+         <form name = "placaForm" novalidate>
+            <table border = "0">
+               <tr>
+                  <td>Enter number license plate:</td>
+                  <td><input name = "licensenumber" type = "text" ng-model = "licenseNumber" required>
+                     <span style = "color:red" ng-show = "placaForm.licensenumber.$dirty && placaForm.licensenumber.$invalid">
+                        <span ng-show = "placaForm.licensenumber.$error.required">License number is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>Enter date:</td>
+                  <td><input name = "currentdate" type = "datetime-local" ng-model = "currentDate" 
+                        placeholder="yyyy-MM-ddTHH:mm:ss" 
+                        min="2001-01-01T00:00:00" 
+                        max="2017-12-31T00:00:00" required>
+                     <span style = "color:red" ng-show = "placaForm.currentdate.$dirty && placaForm.currentdate.$invalid">
+                        <span ng-show = "placaForm.currentdate.$error.required">Date is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               <tr>
+                    <td>
+                        <button ng-click = "checkPicoPlaca()">Check</button> 
+                    </td>                 
+               </tr>	    
+            </table>
+         </form>
+      </div>
+      
+      <script src="placa.js"></script>
+
+   </body>
+</html>
